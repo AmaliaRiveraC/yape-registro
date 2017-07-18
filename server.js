@@ -17,6 +17,7 @@ const format = morganjson({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(express.static('node_modules'));
 app.use(morgan(format));
 
 let router = express.Router();
@@ -25,7 +26,12 @@ router.get('/', (req, res) => {
   res.json({ name: 'yape-api',version: "0.0.1"});
 });
 
+
 app.use('/api',apiUsers(router,db));
+
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + 'public');
+});
 
 const port = process.env.PORT || 3000;
 

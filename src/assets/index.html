@@ -11,60 +11,52 @@
 	</head>
 	<body>
 		<section class="container carrusel-inicio">
-			<div class="row">
-				<div class="carousel carousel-slider center" data-indicators="true">
-					<div class="carousel-fixed-item">
-						<a class="btn waves-effect white grey-text darken-text-2">Registrate</a>
-					</div>
-					<div class="carousel-item white" href="#one!">
-						<img class="responsive-img" src="img/icons/icon-people.png" alt="icono">
-						<h2>Paga a tus amigos</h2>
-						<p>Paga a quien quieras, desded donde quieras sin usar efectivo</p>
-					</div>
-					<div class="carousel-item white" href="#four!">
-						<img class="responsive-img registro" src="img/icons/phone.png" alt="icono">
-						<h2>Para comenzar validemos tu numero</h2>
-						<p> recibiras un SMS con un codigo de validacion></p>
-						<div class="row">
-							<form class="col s12">
-								<div class="row">
-									<div class="input-field">
-										<i class="material-icons prefix">phone</i>
-										<input id="icon_telephone" type="tel" class="validate">
-										<label for="icon_telephone">Telephone</label>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
+			<div class="carousel carousel-slider center" data-indicators="true">
+				<div class="carousel-fixed-item center">
+					<a class="btn waves-effect boton grey-text darken-text-2" href="registro.html">Registrarme</a>
+				</div>
+				<div class="carousel-item white white-text" href="#one!">
+					<img src="img/icons/icon-people.png" alt="icono">
+					<h5>Paga a tus amigos</h5>
+					<p>Paga a quien quieras, desded donde quieras sin usar efectivo</p>
+				</div>
+				<div class="carousel-item white white-text" href="#two!">
+					<img src="img/icons/happy-person.png" alt="icono">
+					<h5>Sin numero de cuenta</h5>
+					<p>Elige a quien pagar desde tu lista de contactos</p>
+				</div>
+				<div class="carousel-item white white-text" href="#three!">
+					<img src="img/icons/group-people.png" alt="icono">
+					<h2>Gratis y seguro</h2>
+					<p >La transferencia es inmediata y gratuita de una cuenta a otra</p>
 				</div>
 
-
 			</div>
-		</section>
-		</section>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-	<script src="app.js"></script>
-	<script>
-		var url = 'api/users.js';
-		function getJSON(url) { 
 
-			return new Promise(function(resolve, reject) {
-				var ajax = new XMLHttpRequest();
-				ajax.open("GET", url);
-				ajax.send();
 
-				ajax.onreadystatechange = function(){
-					if(ajax.readyState == 4){ 
-						console.log(resolve)
-						resolve(ajax.responseText)
+		</section>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+		<script src="app.js"></script>
+		<script>
+			var url = 'api/users.js';
+			function getJSON(url) { 
+
+				return new Promise(function(resolve, reject) {
+					var ajax = new XMLHttpRequest();
+					ajax.open("GET", url);
+					ajax.send();
+
+					ajax.onreadystatechange = function(){
+						if(ajax.readyState == 4){ 
+							console.log(resolve)
+							resolve(ajax.responseText)
+						}
 					}
-				}
-			});
-		}
+				});
+			}
 
-		getJSON(url)
-	</script>
+			getJSON(url)
+		</script>
 	</body>
 </html>

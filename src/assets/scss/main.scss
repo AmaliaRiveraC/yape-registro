@@ -1,13 +1,18 @@
+@import "variables";
+@import "mixin";
 
 .carousel {
 	.carousel-item>img {
-    	width: 40%;
-		height: 55vh;
+    	width: 50%;
+		height: 65vh;
 		
 		.registro {
-			width: 20%;
-			height: 30vh;
+			width: 40%;
 			
 		}
 	}
+}
+
+.boton {
+	background: $amarilloBotones;
 }

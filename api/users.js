@@ -2,7 +2,7 @@ var rn = require('random-number');
 
 module.exports = (router,db) => {
 
-  router.post('api/registerNumber',(req, res) => {
+  router.post('/registerNumber',(req, res) => {
 
     const userid = req.body.phone;
     const terms  = req.body.terms;

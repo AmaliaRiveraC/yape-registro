@@ -7,7 +7,8 @@ var rutas = {
 	mainSass: './src/assets/scss/main.scss',
 	variablesSass: './src/assets/scss/_variables.scss',
 	mixinSass: './src/assets/scss/_mixin.scss',
-	js: './src/assets/js/app.js'
+	js: './src/assets/js/app.js',
+	jsPuro: './src/assets/js/main.js'
 };
 
 gulp.task('html', function(){
@@ -20,10 +21,6 @@ gulp.task('registro', function(){
 		.pipe(gulp.dest('./public'))
 });
 
-gulp.task('registro', function(){
-	gulp.src(rutas.registroHTML)
-	.pipe(gulp.dest('./public'))
-});
 
 gulp.task('css', function(){
 	gulp.src(rutas.mainSass)
@@ -38,16 +35,23 @@ gulp.task('js', function(){
 		.pipe(gulp.dest('./public'))
 });
 
-gulp.task('html-watch', ['html'], function(){
+gulp.task('jsPuro', function(){
+	gulp.src(rutas.jsPuro)
+	.pipe(gulp.dest('./public'))
+});
+
+gulp.task('html-watch', ['html', 'registro'], function(){
 	gulp.watch(rutas.html);
+	gulp.watch(rutas.registroHTML);
 });
 
 gulp.task('css-watch', ['css'], function(){
 	gulp.watch(rutas.mainSass, ['css']);
 });
 
-gulp.task('js-watch', ['js'], function(done){
+gulp.task('js-watch', ['js', 'jsPuro'], function(done){
 	gulp.watch(rutas.js);
+	gulp.watch(rutas.jsPuro);
 });
 
 

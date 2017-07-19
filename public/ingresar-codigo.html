@@ -11,17 +11,19 @@
 	</head>
 	<body>
 		<section class="container">
-			<img src="img/icons/phone.png" alt="icono">
+			<img src="img/icons/message.png" alt="icono">
 			<form id="form" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
+						<h3>Ahora ingresa tu codigo</h3>
+						<p>Enviamos un sms con el código de validación al número: <span id="telephoNumber"></span></p>
 						<i class="material-icons prefix">phone</i>
-						<input id="phone" type="tel" required/>
+						<input id="phone" type="text" required/>
 						<label for="icon_telephone"></label>
 					</div>
 					<div class="col s12">
 						<input type="checkbox" id="check" />
-						<label for="check">Acepto los <a href="">Terminos y condiciones</a></label>
+						<label for="test5">Acepto los <a href="">Terminos y condiciones</a></label>
 					</div>
 				</div>
 				<button id="enviar"  type="submit" class="boton grey-text darken-text-2 boton col s10">Registrarme</button>
@@ -29,6 +31,6 @@
 		</section>
 		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-		<script src="main.js"></script>
+		<script src="app.js"></script>
 	</body>
 </html>

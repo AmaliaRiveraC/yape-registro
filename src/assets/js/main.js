@@ -25,11 +25,15 @@ var postJSON = function(url) {
   return new Promise(function(resolve, reject) {
     var ajax = new XMLHttpRequest();
     ajax.open("POST",url);
-    ajax.send();
+	ajax.dataType = "json";
+	ajax.data = {
+		"phone": phone,
+		"terms": check
+	};
 
-    ajax.onreadystatechange = function(response){
+    ajax.send();
+    ajax.onreadystatechange = function(){
       if(ajax.readyState == 4){ 
-		  console.log(response)
         resolve(ajax.responseText)
       } else {
 		  console.log("error");

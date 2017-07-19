@@ -23,17 +23,19 @@ form.addEventListener('submit', function(event) {
 var postJSON = function(url) { 
 
   return new Promise(function(resolve, reject) {
+	  console.log(resolve)
     var ajax = new XMLHttpRequest();
     ajax.open("POST",url);
-	  console.log(ajax);
-    ajax.send(data: {
-		phone: phone,
-		terms: check
-	});
+	ajax.dataType = "json";
+	ajax.data = {
+		"phone": phone,
+		"terms": check
+	};
 
-    ajax.onreadystatechange = function(response){
+    ajax.send(ajax.data);
+	  console.log(ajax.send);
+    ajax.onreadystatechange = function(){
       if(ajax.readyState == 4){ 
-		  console.log(response)
         resolve(ajax.responseText)
       } else {
 		  console.log("error");

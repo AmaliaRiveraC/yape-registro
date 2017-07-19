@@ -7,7 +7,7 @@ var rutas = {
 	mainSass: './src/assets/scss/main.scss',
 	variablesSass: './src/assets/scss/_variables.scss',
 	mixinSass: './src/assets/scss/_mixin.scss',
-	js: './app.js'
+	js: './src/assets/js/app.js'
 };
 
 gulp.task('html', function(){

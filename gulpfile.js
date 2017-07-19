@@ -20,6 +20,11 @@ gulp.task('registro', function(){
 		.pipe(gulp.dest('./public'))
 });
 
+gulp.task('registro', function(){
+	gulp.src(rutas.registroHTML)
+	.pipe(gulp.dest('./public'))
+});
+
 gulp.task('css', function(){
 	gulp.src(rutas.mainSass)
 		.pipe(sass({

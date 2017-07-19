@@ -1,4 +1,4 @@
-var url = 'http:localhost:8000/api/registerNumber';
+var url = '/api/registerNumber';
 
 var form = document.getElementById('form');
 
@@ -16,25 +16,29 @@ form.addEventListener('submit', function(event) {
 		check = false;
 	}
 	
-	enviarDatosAPI({
-		"phone": phone,
-		"terms": check
-	});
+	postJSON(url)
 	
 });
 
-var enviarDatosAPI = function() {
-	$.ajax(url, {
-      method: "POST",
-      dataType: "json",
-      success: function (response) {
-        console.log(response);
-      },
-  error: function (error) {
-    console.log("error", error);
-  }
-});
-};
+var postJSON = function(url) { 
+
+  return new Promise(function(resolve, reject) {
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST",url);
+    ajax.send();
+
+    ajax.onreadystatechange = function(response){
+      if(ajax.readyState == 4){ 
+		  console.log(response)
+        resolve(ajax.responseText)
+      } else {
+		  console.log("error");
+	  }
+    }
+  });
+}
+
+
 
 /*var enviarDatosAPI = function(){
 	$.post($url, {

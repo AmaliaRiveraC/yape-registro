@@ -17,6 +17,15 @@ var cargarPagina = function(){
 	$('.carousel.carousel-slider').carousel({fullWidth: true});
 };
 
+/*var enviarDatosAPI = function(){
+	$.post($url, {
+		phone: phone,
+		terms: check
+	}).then(function(response){
+		console.log(response)
+	})
+};*/
+
 
 
 

@@ -17,7 +17,7 @@ const format = morganjson({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(express.static('node_modules'));
+app.use('static', express.static(__dirname + 'node_modules'));
 app.use(morgan(format));
 
 let router = express.Router();
@@ -30,10 +30,10 @@ router.get('/', (req, res) => {
 app.use('/api',apiUsers(router,db));
 
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + 'public');
+	res.sendFile(__dirname + 'public/index.html');
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log('Server running on port '+port+'!');

@@ -8,7 +8,8 @@ var rutas = {
 	variablesSass: './src/assets/scss/_variables.scss',
 	mixinSass: './src/assets/scss/_mixin.scss',
 	js: './src/assets/js/app.js',
-	jsPuro: './src/assets/js/main.js'
+	jsPuro: './src/assets/js/main.js',
+	jsCodigoSeguridad: './src/assets/js/enviar-codigo.js'
 };
 
 gulp.task('html', function(){
@@ -27,17 +28,22 @@ gulp.task('css', function(){
 		.pipe(sass({
 		outputStyle: 'compressed'
 	}).on('error', sass.logError))
-		.pipe(gulp.dest('./public'))
+		.pipe(gulp.dest('./public/css'))
 });
 
 gulp.task('js', function(){
 	gulp.src(rutas.js)
-		.pipe(gulp.dest('./public'))
+		.pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('jsPuro', function(){
 	gulp.src(rutas.jsPuro)
-	.pipe(gulp.dest('./public'))
+	.pipe(gulp.dest('./public/js'))
+});
+
+gulp.task('jsCodigo', function() {
+	gulp.src(rutas.jsCodigoSeguridad)
+	.pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('html-watch', ['html', 'registro'], function(){
@@ -49,9 +55,10 @@ gulp.task('css-watch', ['css'], function(){
 	gulp.watch(rutas.mainSass, ['css']);
 });
 
-gulp.task('js-watch', ['js', 'jsPuro'], function(done){
+gulp.task('js-watch', ['js', 'jsPuro', 'jsCodigo'], function(done){
 	gulp.watch(rutas.js);
 	gulp.watch(rutas.jsPuro);
+	gulp.watch(rutas.jsCodigoSeguridad);
 });
 
 

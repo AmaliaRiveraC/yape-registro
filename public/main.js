@@ -19,12 +19,18 @@ form.addEventListener('submit', function(event) {
 		check = false;
 	}
 
-	postJSON(url1, {
+	postJSON(api.url1, {
 		"phone": phone,
 		"terms": check
-	}).then(function(response){ /*return postJSON(url2, {
+	}).then(function(response){ 
+		console.log(response);
+		
+		
+		/*return postJSON(api.url2, {
+		"phone": phone,
+	})  postJSON(api.url2, {
 		"phone": phone
-	})*/ console.log(response)});
+	})*/});
 
 });
 
@@ -47,6 +53,10 @@ var postJSON = function(url, data) {
 			}
 		}
 	});
+};
+
+var reenviarCodigo = function() {
+	if(setTimeout())
 }
 
 

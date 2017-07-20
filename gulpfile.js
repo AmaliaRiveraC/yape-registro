@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var rutas = {
 	html: './src/assets/index.html',
 	registroHTML: './src/assets/registro.html',
+	codigoHTML: './src/assets/ingresar-codigo.html',
 	mainSass: './src/assets/scss/main.scss',
 	variablesSass: './src/assets/scss/_variables.scss',
 	mixinSass: './src/assets/scss/_mixin.scss',
@@ -21,6 +22,11 @@ gulp.task('html', function(){
 gulp.task('registro', function(){
 	gulp.src(rutas.registroHTML)
 		.pipe(gulp.dest('./public'))
+});
+
+gulp.task('codigoHTML', function(){
+	gulp.src(rutas.codigoHTML)
+		.pipe(gulp.dest('./public/views'))
 });
 
 

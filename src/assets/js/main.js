@@ -4,25 +4,6 @@ var api = {
 };
 
 
-var requestAPI = function(event) {
-	event.preventDefault();
-	var phone = contenedorPhone.value;
-	localStorage.setItem("phone", phone);
-	var check= document.getElementById('check').checked;
-
-	postJSON(api.url1, {
-		"phone": phone,
-		"terms": check
-	})
-		.then(function(response){ 
-		enviarCodigo(response);
-		})
-		.then(function(response) {
-		reenviarCodigo();
-		ingresarCodigo(phone);
-		})
-};
-
 var postJSON = function(url, data) { 
 
 	return new Promise(function(resolve, reject) {
@@ -51,11 +32,11 @@ var enviarCodigo = function(response) {
 	var exito = objetoJSON.success;
 	var datos = objetoJSON.data;
 	var codigo = datos.code;
-	localStorage.setItem("codigo", codigo);
+	console.log(codigo);
 	if(exito == true) {
 		var phone = datos.phone;
 		alert('Tu código de validación es ' + codigo);
-		window.location.href = 'ingresar-codigo.html';
+		window.location.href = 'views/ingresar-codigo.html';
 		
 	} else {
 		alert('Este número ya ha sido ingresado anteriormente');

@@ -12,18 +12,22 @@
 	<body>
 		<section class="container contenedor-codigo">
 			<div class="row">
-				<img class="responsive-img __icono" src="img/icons/message.png" alt="icono">
+				<div class="center">
+					<img class="responsive-img __icono" src="../img/icons/message.png" alt="icono">
+				</div>
 				<form class="col s12">
 					<div class="row">
 						<div class="input-field col offset-s3 s6">
 							<div class="row">
-								<h5 class="col offset-s3 __titulo">Ahora ingresa tu código</h5>
-								<p>Enviamos un sms con el código de validación al número: <span id="telephoNumber"></span></p>
+								<h5 class="center __titulo">Ahora ingresa tu código</h5>
+								<p class="center">Enviamos un sms con el código de validación al número: <span id="telephoNumber"></span></p>
 							</div>
-							<div class="input-field col offset-s3 s7 m5">
-								<i class="material-icons prefix">phone</i>
-								<input id="phone" type="tel" required/>
-								<label for="icon_chan"></label>
+							<div class="row">
+								<div class="input-field col offset-s1 s9">
+									<i class="material-icons prefix">lock</i>
+									<input id="candado" type="tel" required/>
+									<label for="candado"></label>
+								</div>
 							</div>
 						</div>
 					</div>

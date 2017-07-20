@@ -4,7 +4,7 @@ var boton = document.getElementById('enviar');
 
 
 
-contenedorPhone.addEventListener('focus', function(event){
+contenedorPhone.addEventListener('keyup', function(event){
 	event.preventDefault();
 	var check= document.getElementById('check').checked;
 
@@ -13,4 +13,18 @@ contenedorPhone.addEventListener('focus', function(event){
 	}
 });
 
-form.addEventListener('keyup', requestAPI);
+boton.addEventListener('click', function(event){
+	
+	event.preventDefault();
+	var phone = contenedorPhone.value;
+	localStorage.setItem("phone", phone);
+	var check= document.getElementById('check').checked;
+
+	postJSON(api.url1, {
+		"phone": phone,
+		"terms": check
+	})
+		.then(function(response){ 
+		enviarCodigo(response);
+		})
+});

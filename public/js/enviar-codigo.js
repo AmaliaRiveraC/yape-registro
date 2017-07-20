@@ -1,11 +1,15 @@
 
 var ingresarCodigo = function(phone) {
-	var tuTelefono = document.getElementById('telephoNumber');
-	tuTelefono.textContent = phone;
+	var tuTelefono = document.getElementById('telephoNumber')
+	tuTelefono.innerHTML = localStorage.getItem("phone");
+	
+	if(reenviarCodigo)
 };
 
 
 
 var reenviarCodigo = function() {
-	if(setTimeout(segundaLlamadaAPI, 21000))
+	if(setTimeout(function() {
+		
+	}, 21000))
 }

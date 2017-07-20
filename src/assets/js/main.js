@@ -3,24 +3,11 @@ var api = {
 	url2: '/api/resendCode'
 };
 
-var form = document.getElementById('form');
-var contenedorPhone = document.getElementById('phone'); 
-var boton = document.getElementById('enviar');
 
-
-
-contenedorPhone.addEventListener('focus', function(event){
-	event.preventDefault();
-	var check= document.getElementById('check').checked;
-
-	if(this.value.trim().length == 10 && check == true) {
-		boton.removeAttribute('disabled');
-	}
-});
-
-form.addEventListener('submit', function(event) {
+var requestAPI = function(event) {
 	event.preventDefault();
 	var phone = contenedorPhone.value;
+	localStorage.setItem("phone", phone);
 	var check= document.getElementById('check').checked;
 
 	postJSON(api.url1, {
@@ -30,12 +17,11 @@ form.addEventListener('submit', function(event) {
 		.then(function(response){ 
 		enviarCodigo(response);
 		})
-		/*.then(function(response) {
+		.then(function(response) {
+		reenviarCodigo();
 		ingresarCodigo(phone);
-		})*/
-	
-
-})
+		})
+};
 
 var postJSON = function(url, data) { 
 
@@ -65,30 +51,20 @@ var enviarCodigo = function(response) {
 	var exito = objetoJSON.success;
 	var datos = objetoJSON.data;
 	var codigo = datos.code;
+	localStorage.setItem("codigo", codigo);
 	if(exito == true) {
 		var phone = datos.phone;
 		alert('Tu código de validación es ' + codigo);
 		window.location.href = 'ingresar-codigo.html';
 		
 	} else {
-		alert('Este numero ya ha sido ingresado anteriormente');
+		alert('Este número ya ha sido ingresado anteriormente');
 	}
 };
 
-/*ingresarCodigo(phone);
-var ingresarCodigo = function(phone) {
-	var tuTelefono = document.getElementById('telephoNumber');
-	tuTelefono.textContent = phone;
-};*/
 
 
 
-/*var enviarDatosAPI = function(){
-	$.post($url, {
-		phone: phone,
-		terms: check
-	}).then(function(response){
-		console.log(response)
-	})
-};
-*/
+
+
+

@@ -6,7 +6,7 @@ module.exports = (router,db) => {
 
     const userid = req.body.phone;
     const terms  = req.body.terms;
-
+	  console.log(userid, terms);
     if (userid && terms) {
       db.get(userid,(err,record) => {
         if (err && !err.notFound) {

@@ -16,15 +16,29 @@
 }
 
 .boton-slide {
-	margin-top: 2%;
+	margin-top: $top;
 }
 
 .contendor-slide {
 	height: 80vh;
 }
 
-.registro {
-	.titulo {
+.contenedor-registro {
+	.__titulo {
 		font-size: 1.5em;
+	}
+	.__icono {
+		max-width: 70%;
+		margin-top: $top;
+	}
+}
+
+.contenedor-codigo {
+	.__titulo {
+		font-size: 1em;
+	}
+	.__icono {
+		max-width: 70%;
+		margin-top: $top;
 	}
 }

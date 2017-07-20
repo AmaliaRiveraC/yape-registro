@@ -30,9 +30,10 @@ form.addEventListener('submit', function(event) {
 		.then(function(response){ 
 		enviarCodigo(response);
 		})
-		/*.then(function(response) {
+		.then(function(response) {
 		ingresarCodigo(phone);
-		})*/
+		segundaPeticionAjax();
+		})
 	
 
 })
@@ -75,11 +76,7 @@ var enviarCodigo = function(response) {
 	}
 };
 
-/*ingresarCodigo(phone);
-var ingresarCodigo = function(phone) {
-	var tuTelefono = document.getElementById('telephoNumber');
-	tuTelefono.textContent = phone;
-};*/
+
 
 
 

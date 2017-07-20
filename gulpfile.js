@@ -9,6 +9,7 @@ var rutas = {
 	mixinSass: './src/assets/scss/_mixin.scss',
 	js: './src/assets/js/app.js',
 	jsPuro: './src/assets/js/main.js',
+	jsRegistro: './src/assets/js/registro.js',
 	jsCodigoSeguridad: './src/assets/js/enviar-codigo.js'
 };
 
@@ -45,6 +46,12 @@ gulp.task('jsCodigo', function() {
 	gulp.src(rutas.jsCodigoSeguridad)
 	.pipe(gulp.dest('./public/js'))
 });
+
+gulp.task('jsRegistro', function() {
+	gulp.src(rutas.jsRegistro)
+	.pipe(gulp.dest('./public/js'))
+});
+
 
 gulp.task('html-watch', ['html', 'registro'], function(){
 	gulp.watch(rutas.html);

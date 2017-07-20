@@ -67,7 +67,7 @@ var enviarCodigo = function(response) {
 	var codigo = datos.code;
 	if(exito == true) {
 		var phone = datos.phone;
-		alert('Tu código de validación es' + codigo);
+		alert('Tu código de validación es ' + codigo);
 		window.location.href = 'ingresar-codigo.html';
 		
 	} else {

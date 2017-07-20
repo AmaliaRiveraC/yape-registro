@@ -6,28 +6,22 @@ var api = {
 var form = document.getElementById('form');
 var contenedorPhone = document.getElementById('phone'); 
 var boton = document.getElementById('enviar');
-var phone = contenedorPhone.value;
 
 
 
-contenedorPhone.addEventListener('keyup', function(event){
+contenedorPhone.addEventListener('focus', function(event){
 	event.preventDefault();
 	var check= document.getElementById('check').checked;
 
 	if(this.value.trim().length == 10 && check == true) {
 		boton.removeAttribute('disabled');
-		console.log(boton.attributes);
-		
 	}
 });
 
 form.addEventListener('submit', function(event) {
 	event.preventDefault();
-	var longPhone = phone.length;
-	
-	
-	
-	
+	var phone = contenedorPhone.value;
+	var check= document.getElementById('check').checked;
 
 	postJSON(api.url1, {
 		"phone": phone,
@@ -36,10 +30,9 @@ form.addEventListener('submit', function(event) {
 		.then(function(response){ 
 		enviarCodigo(response);
 		})
-		.then(function(response) {
-		console.log(response);
+		/*.then(function(response) {
 		ingresarCodigo(phone);
-		})
+		})*/
 	
 
 })
@@ -66,35 +59,27 @@ var postJSON = function(url, data) {
 };
 
 
-/*var  = function(){
-	
-	var longPhone = phone.length;
-	
-	if(phone.length == 10 && check == true ) {
-		
-		console.log(boton.getAttribute)
-	} 
-	
-};*/
 
 var enviarCodigo = function(response) {
 	var objetoJSON = JSON.parse(response);
 	var exito = objetoJSON.success;
 	var datos = objetoJSON.data;
-	
+	var codigo = datos.code;
 	if(exito == true) {
 		var phone = datos.phone;
+		alert('Tu código de validación es' + codigo);
 		window.location.href = 'ingresar-codigo.html';
-		ingresarCodigo(phone);
+		
 	} else {
 		alert('Este numero ya ha sido ingresado anteriormente');
 	}
 };
 
+/*ingresarCodigo(phone);
 var ingresarCodigo = function(phone) {
 	var tuTelefono = document.getElementById('telephoNumber');
 	tuTelefono.textContent = phone;
-};
+};*/
 
 
 

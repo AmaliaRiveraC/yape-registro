@@ -27,4 +27,6 @@ boton.addEventListener('click', function(event){
 		.then(function(response){ 
 		enviarCodigo(response);
 		})
+		
+	})
 });

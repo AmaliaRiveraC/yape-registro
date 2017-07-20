@@ -32,7 +32,8 @@ var enviarCodigo = function(response) {
 	var exito = objetoJSON.success;
 	var datos = objetoJSON.data;
 	var codigo = datos.code;
-	console.log(codigo);
+	localStorage.setItem("codigo", codigo);
+	
 	if(exito == true) {
 		var phone = datos.phone;
 		alert('Tu código de validación es ' + codigo);

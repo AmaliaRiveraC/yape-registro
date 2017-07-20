@@ -2,12 +2,23 @@
 @import "mixin";
 
 .carousel {
-	.carousel-item>img {
-    	width: 50%;
-		height: 65vh;
+	.carousel-slider {
+		height: 80vh;
 	}
+	.carousel-item>img {
+			width: 50%;
+			height: 55vh;
+		}
 }
 
 .boton {
 	background: $amarilloBotones;
+}
+
+.boton-slide {
+	margin-top: 2%;
+}
+
+.contendor-slide {
+	height: 80vh;
 }

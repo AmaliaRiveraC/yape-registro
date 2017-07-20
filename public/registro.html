@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-		<section class="container">
+		<section class="container ingresa-codigo">
 			<div class="row">
 				<div class="col offset-s3">
 					<img class="responsive-img " src="img/icons/phone.png" alt="icono">
@@ -18,18 +18,22 @@
 			</div>
 			<form id="form" class="col s12">
 				<div class="row">
+					<h5 class="col offset-s3">Para comenzar validemos tu número</h5>
+					<p class="col offset-s3">Recibiras un sms con un código de validación</p>
+				</div>
+				<div class="row">
 					<div class="input-field col offset-s3 s7 m5">
 						<i class="material-icons prefix">phone</i>
 						<input id="phone" type="tel" required/>
 						<label for="icon_telephone"></label>
 					</div>
-					<div class="col offset-s4 s10">
+					<div class="col offset-s4 s8">
 						<input type="checkbox" id="check" />
 						<label for="check"><small>Acepto los <a href="">Terminos y condiciones</a></small></label>
 					</div>
 				</div>
 				<div class="row">
-					<button id="enviar"  type="submit" class="col offset-s4 offset-m3 s5 boton grey-text darken-text-2 boton">Registrarme</button>
+					<button id="enviar"  type="submit" class="col offset-s4 offset-m3 s5 boton grey-text darken-text-2 boton" disabled>Registrarme</button>
 				</div>
 			</form>
 		</section>

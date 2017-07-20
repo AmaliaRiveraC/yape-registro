@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,8 @@
 	</head>
 	<body>
 		<section class="container">
-			<img src="img/icons/phone.png" alt="">
-			<form id="fomulario" class="col s12">
+			<img src="img/icons/phone.png" alt="icono">
+			<form id="form" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">phone</i>
@@ -21,12 +21,14 @@
 					</div>
 					<div class="col s12">
 						<input type="checkbox" id="check" />
-						<label for="test5">Acepto los <a href="">Terminos y condiciones</a></label>
+						<label for="check">Acepto los <a href="">Terminos y condiciones</a></label>
 					</div>
 				</div>
-				<button  type="submit" class="btn waves-effect boton grey-text darken-text-2 boton col s10" href="#">Registrarme</button>
+				<button id="enviar"  type="submit" class="boton grey-text darken-text-2 boton col s10">Registrarme</button>
 			</form>
 		</section>
-		<script src="app.js"></script>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>

@@ -5,9 +5,8 @@ var rutas = {
 	html: './src/assets/index.html',
 	registroHTML: './src/assets/registro.html',
 	codigoHTML: './src/assets/ingresar-codigo.html',
+	usuarioHTML:'./src/assets/crear-usuario.html',
 	mainSass: './src/assets/scss/main.scss',
-	variablesSass: './src/assets/scss/_variables.scss',
-	mixinSass: './src/assets/scss/_mixin.scss',
 	js: './src/assets/js/app.js',
 	jsPuro: './src/assets/js/main.js',
 	jsRegistro: './src/assets/js/registro.js',
@@ -21,13 +20,18 @@ gulp.task('html', function(){
 
 gulp.task('registro', function(){
 	gulp.src(rutas.registroHTML)
-		.pipe(gulp.dest('./public'))
+		.pipe(gulp.dest('./public/views'))
 });
 
-gulp.task('codigoHTML', function(){
+gulp.task('codigo', function(){
 	gulp.src(rutas.codigoHTML)
 		.pipe(gulp.dest('./public/views'))
 });
+
+gulp.task('usuario', function(){
+	gulp.src(rutas.usuarioHTML)
+		.pipe(gulp.dest('./public/views'))
+})
 
 
 gulp.task('css', function(){

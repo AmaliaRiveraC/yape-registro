@@ -1,30 +1,35 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
-var codigoIngresaoPorUsuario = inputCodigo.value;
-var codigo = localStorage.getItem('codigo');
-var codigoAleatorioAPI = codigo;
-var tuTelefono = document.getElementById('telephoNumber');
-var phone = localStorage.getItem('phone');
-tuTelefono.innerHTML = phone;
-
-inputCodigo.addEventListener('keyup', verificarCodigo);
 
 
 
-var verificarCodigo = function(){
+inputCodigo.addEventListener('keyup',  function(event){
+	event.preventDefault();
+	var codigoIngresaoPorUsuario = inputCodigo.value;
+	var codigo = localStorage.getItem('codigo');
+	var tuTelefono = document.getElementById('telephoNumber');
+	var phone = localStorage.getItem('phone');
 
-	limiteDeTiempo();
+	tuTelefono.innerHTML = phone;
 
-};
+	if(codigoIngresaoPorUsuario == codigo){
+		window.location.href = 'crear-usuario.html';
+	}
+	limiteDeTiempo(phone);
+
+});
 
 var limiteDeTiempo = function() {
-	if(setTimeout(function(){
+	setTimeout(function(){
 		postJSONDos(api.url2, {
-			"phone": 
-		})}, 21000));
+			"phone": phone
+		})
+	.then(function(response){
+			console.log(response);
+		})}, 21000);
 };
 
-	var postJSONDos = function(url) {
-		return new Promise(function(resolve, reject) {
+var postJSONDos = function(url) {
+	return new Promise(function(resolve, reject) {
 		var ajax = new XMLHttpRequest();
 		ajax.open("POST", url);
 		ajax.setRequestHeader("Content-Type", "application/json");
@@ -40,8 +45,8 @@ var limiteDeTiempo = function() {
 			}
 		}
 	});
-	};
-	/*postJSON(api.url2, {
+};
+/*postJSON(api.url2, {
 
 		})
 		;}

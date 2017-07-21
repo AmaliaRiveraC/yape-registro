@@ -7,7 +7,7 @@
 		<title>Yape</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-		<link rel="stylesheet" href="../main.css">
+		<link rel="stylesheet" href="../css/main.css">
 	</head>
 	<body>
 		<section class="container contenedor-codigo">
@@ -17,7 +17,7 @@
 				</div>
 				<form class="col s12">
 					<div class="row">
-						<div class="input-field col offset-s3 s6">
+						<div class="input-field">
 							<div class="row">
 								<h5 class="center __titulo">Ahora ingresa tu código</h5>
 								<p class="center">Enviamos un sms con el código de validación al número: <span id="telephoNumber"></span></p>
@@ -26,7 +26,8 @@
 								<div class="input-field col offset-s1 s10">
 									<i class="material-icons prefix">lock</i>
 									<input id="contenedor-codigo" type="tel" placeholder="Ingresa código de 5 digitos" required/>
-									<label for="contenedor-codigo">Reintentar en <span id="contenedor-contador"></span> segundos</label>
+									<label for="contenedor-codigo"></label>
+									<p>Reintentar en <span id="contenedor-contador"> </span> <segundosa><i class="material-icons prefix">access_time</i></segundosa></p>
 								</div>
 							</div>
 						</div>

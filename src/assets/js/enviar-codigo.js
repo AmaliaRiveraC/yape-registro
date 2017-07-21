@@ -15,7 +15,7 @@ inputCodigo.addEventListener('keyup',  function(event){
 	if(codigoIngresaoPorUsuario == codigo){
 		window.location.href = 'crear-usuario.html';
 	}
-	limiteDeTiempo(phone);
+	//limiteDeTiempo(phone);
 
 });
 
@@ -49,6 +49,6 @@ var postJSONDos = function(url) {
 	});
 };
 	
-var enviarCodigoNuevo = function(){
-	
+var enviarCodigoNuevo = function(response){
+	console.log(response);
 };

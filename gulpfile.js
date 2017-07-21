@@ -52,16 +52,15 @@ gulp.task('jsPuro', function(){
 	.pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('jsCodigo', function() {
-	gulp.src(rutas.jsCodigoSeguridad)
-	.pipe(gulp.dest('./public/js'))
-});
-
 gulp.task('jsRegistro', function() {
 	gulp.src(rutas.jsRegistro)
 	.pipe(gulp.dest('./public/js'))
 });
 
+gulp.task('jsCode', function() {
+	gulp.src(rutas.jsCodigoSeguridad)
+	.pipe(gulp.dest('./public/js'))
+});
 
 gulp.task('html-watch', ['html', 'registro'], function(){
 	gulp.watch(rutas.html);
@@ -72,7 +71,7 @@ gulp.task('css-watch', ['css'], function(){
 	gulp.watch(rutas.mainSass, ['css']);
 });
 
-gulp.task('js-watch', ['js', 'jsPuro', 'jsCodigo'], function(done){
+gulp.task('js-watch', ['js', 'jsPuro', 'jsCode'], function(){
 	gulp.watch(rutas.js);
 	gulp.watch(rutas.jsPuro);
 	gulp.watch(rutas.jsCodigoSeguridad);

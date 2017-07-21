@@ -4,6 +4,7 @@
 .carousel {
 	.carousel-slider {
 		height: 80vh;
+		padding-bottom: 5%;
 	}
 	.carousel-item>img {
 		width: 50%;
@@ -41,4 +42,13 @@
 		max-width: 70%;
 		margin-top: $top;
 	}
+}
+
+
+.__titulo {
+	font-size: 1em;
+}
+.__icono {
+	max-width: 70%;
+	margin-top: $top;
 }

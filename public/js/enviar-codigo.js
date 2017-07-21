@@ -1,14 +1,15 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
-
-
-
+var contenedorTemporizador = document.getElementById('contenedor-contador');
+ 
+ 
+ 
 inputCodigo.addEventListener('keyup',  function(event){
 	event.preventDefault();
 	var codigoIngresaoPorUsuario = inputCodigo.value;
 	var codigo = localStorage.getItem('codigo');
 	var tuTelefono = document.getElementById('telephoNumber');
 	var phone = localStorage.getItem('phone');
-
+ 
 	tuTelefono.innerHTML = phone;
 
 	if(codigoIngresaoPorUsuario == codigo){
@@ -25,6 +26,7 @@ var limiteDeTiempo = function() {
 		})
 	.then(function(response){
 			console.log(response);
+			enviarCodigoNuevo(response);
 		})}, 21000);
 };
 
@@ -46,12 +48,7 @@ var postJSONDos = function(url) {
 		}
 	});
 };
-/*postJSON(api.url2, {
-
-		})
-		;}
-
-	var ingresarCodigo = function(phone) {
-		var tuTelefono = document.getElementById('telephoNumber');
-		tuTelefono.textContent = phone;
-	};*/
+	
+var enviarCodigoNuevo = function(){
+	
+};

@@ -7,32 +7,53 @@
 		<title>Yape</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="../main.css">
 	</head>
 	<body>
-		<section class="container">
+		<section class="container contenedor-crear-usuario">
 			<div class="row">
-				<div class="col offset-s3">
-					<img class="responsive-img " src="img/icons/phone.png" alt="icono">
+				<div class="center">
+					<img class="responsive-img __icono" src="../img/icons/message.png" alt="icono">
 				</div>
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col offset-s3 s6">
+							<div class="row">
+								<h5 class="center __titulo">Crea tu usuario Yape</h5>
+								<p class="center">Ingresa nombre, email y clave del usuario<span id="telephoNumber"></span></p>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<i class="material-icons prefix">child_care</i>
+									<input id="contenedor-codigo" type="text" placeholder="Ingresa un nombre" required/>
+									<label for="contenedor-codigo"></label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<i class="material-icons prefix">email</i>
+									<input id="contenedor-codigo" type="tel" placeholder="correo@ejemplo.com " required/>
+									<label for="contenedor-codigo"></label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<i class="material-icons prefix">lock</i>
+									<input id="contenedor-codigo" type="tel" placeholder="Ingresa clave de 6 digitos" required/>
+									<label for="contenedor-codigo"></label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
-			<form id="form" class="col s12">
-				<div class="row">
-					<div class="input-field col offset-s3 s7 m5">
-						<i class="material-icons prefix">phone</i>
-						<input id="phone" type="tel" required/>
-						<label for="icon_telephone"></label>
-					</div>
-					<div class="col offset-s4 s10">
-						<input type="checkbox" id="check" />
-						<label for="check"><small>Acepto los <a href="">Terminos y condiciones</a></small></label>
-					</div>
-				</div>
-				<div class="row">
-					<button id="enviar"  type="submit" class="col offset-s4 offset-m3 s5 boton grey-text darken-text-2 boton" disabled>Registrarme</button>
-				</div>
-		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-		<script src="app.js"></script>
-	</body>
-</html>
+
+			<div class="row">
+				<button id="crearCuenta"  type="submit" class="col offset-s4 s5 boton grey-text darken-text-2 boton" disabled>Crear cuenta</button>
+			</div>
+		</section>
+			<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+			<script src="../js/"></script>
+			</body>
+		</html>

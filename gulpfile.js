@@ -52,16 +52,15 @@ gulp.task('jsPuro', function(){
 	.pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('jsCodigo', function() {
-	gulp.src(rutas.jsCodigoSeguridad)
-	.pipe(gulp.dest('./public/js'))
-});
-
 gulp.task('jsRegistro', function() {
 	gulp.src(rutas.jsRegistro)
 	.pipe(gulp.dest('./public/js'))
 });
 
+gulp.task('jsCodigo', function() {
+	gulp.src(rutas.jsCodigoSeguridad)
+	.pipe(gulp.dest('./public/js'))
+});
 
 gulp.task('html-watch', ['html', 'registro'], function(){
 	gulp.watch(rutas.html);

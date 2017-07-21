@@ -4,7 +4,7 @@ var boton = document.getElementById('enviar');
 
 
 
-contenedorPhone.addEventListener('keyup', function(event){
+contenedorPhone.addEventListener('keydown', function(event){
 	event.preventDefault();
 	var check= document.getElementById('check').checked;
 

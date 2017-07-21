@@ -1,6 +1,6 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
 var contenedorTemporizador = document.getElementById('contador');
-contenedorTemporizador.textContent = setTimeout();
+console.log(setTimeout());
  
  
  

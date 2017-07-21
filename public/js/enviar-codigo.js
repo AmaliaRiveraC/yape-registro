@@ -1,5 +1,8 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
 var contenedorTemporizador = document.getElementById('contenedor-contador');
+var contador = 21;
+imprimirTemporizador();
+
  
  
  
@@ -20,6 +23,7 @@ inputCodigo.addEventListener('keyup',  function(event){
 });
 
 var limiteDeTiempo = function() {
+	
 	setTimeout(function(){
 		postJSONDos(api.url2, {
 			"phone": phone
@@ -29,6 +33,21 @@ var limiteDeTiempo = function() {
 			enviarCodigoNuevo(response);
 		})}, 21000);
 };
+
+var imprimirTemporizador = function(){
+	var temporizador = setTimeout(retroceder, 21000);
+};
+
+var retroceder = function(){
+	contenedorTemporizador.innerHTML = contador;
+	contador--;
+	console.log(contador);
+	
+	if(contador == 0){
+		clearTimeout(temporizador);
+	} 
+	
+}
 
 var postJSONDos = function(url) {
 	return new Promise(function(resolve, reject) {
@@ -49,6 +68,10 @@ var postJSONDos = function(url) {
 	});
 };
 	
-var enviarCodigoNuevo = function(){
+var enviarCodigoNuevo = function(response){
+	console.log(response);
+	var response = JSON.parse(response);
+	var datos = response.data;
+	var nuevoCodigo = datos.code;
 	
 };

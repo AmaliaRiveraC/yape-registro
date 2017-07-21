@@ -10,6 +10,8 @@ contenedorPhone.addEventListener('keyup', function(event){
 
 	if(this.value.trim().length == 10 && check == true) {
 		boton.removeAttribute('disabled');
+	} else {
+		boton.getAttribute('disabled', true);
 	}
 });
 

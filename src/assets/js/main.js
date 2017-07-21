@@ -37,7 +37,7 @@ var enviarCodigo = function(response) {
 	if(exito == true) {
 		var phone = datos.phone;
 		alert('Tu código de validación es ' + codigo);
-		window.location.href = 'views/ingresar-codigo.html';
+		window.location.href = 'ingresar-codigo.html';
 	} else {
 		alert('Este número ya ha sido ingresado anteriormente');
 	}

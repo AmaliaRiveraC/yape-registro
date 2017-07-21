@@ -4,17 +4,18 @@ var boton = document.getElementById('enviar');
 
 
 
-contenedorPhone.addEventListener('keydown', function(event){
-	event.preventDefault();
+contenedorPhone.addEventListener('keydown', function(){
 	var check= document.getElementById('check').checked;
 
-	if(this.value.trim().length == 10 && check == true) {
+	if(this.value.length === 10 && check == true) {
 		boton.removeAttribute('disabled');
+	} else {
+		boton.getAttribute('disabled', true);
 	}
 });
 
 boton.addEventListener('click', function(event){
-	
+
 	event.preventDefault();
 	var phone = contenedorPhone.value;
 	localStorage.setItem("phone", phone);
@@ -26,7 +27,6 @@ boton.addEventListener('click', function(event){
 	})
 		.then(function(response){ 
 		enviarCodigo(response);
-		})
-		
 	})
+
 });

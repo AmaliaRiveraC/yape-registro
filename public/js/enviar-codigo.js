@@ -1,6 +1,5 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
-var contenedorTemporizador = document.getElementById('contador');
-console.log(setTimeout());
+var contenedorTemporizador = document.getElementById('contenedor-contador');
  
  
  
@@ -49,7 +48,7 @@ var postJSONDos = function(url) {
 		}
 	});
 };
-
+	
 var enviarCodigoNuevo = function(){
 	
-}
+};

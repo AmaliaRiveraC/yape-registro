@@ -10,35 +10,39 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-		<section class="container registro">
+		<section class="container contenedor-registro">
 			<div class="row">
-				<div class="col offset-s3 center">
-					<img class="responsive-img " src="img/icons/phone.png" alt="icono">
+				<div class="center">
+					<img class="responsive-img __icono" src="img/icons/phone.png" alt="icono">
 				</div>
 			</div>
 			<form id="form" class="col s12">
 				<div class="row">
-					<h5 class="col offset-s3 titulo">Para comenzar validemos tu número</h5>
-					<p class="col offset-s3">Recibiras un sms con un código de validación</p>
+					<h6 class="center __titulo"><strong>Para comenzar validemos tu <br> número</strong></h6>
+					<p class="center">Recibiras un sms con un código de validación</p>
 				</div>
-				<div class="row">
-					<div class="input-field col offset-s3 s7 m5">
-						<i class="material-icons prefix">phone</i>
+				<div class="row center">
+					<div class="col offset-s1 s10 input-field">
+						<i class="center material-icons prefix">phone_android</i>
 						<input id="phone" type="tel" required/>
-						<label for="icon_telephone"></label>
+						<label for="phone"></label>
 					</div>
-					<div class="col offset-s4 s8">
+				</div>
+				<div class="row center">
+					<div class="col offset-s1 s10">
 						<input type="checkbox" id="check" />
 						<label for="check"><small>Acepto los <a href="">Terminos y condiciones</a></small></label>
 					</div>
 				</div>
+
 				<div class="row">
-					<button id="enviar"  type="submit" class="col offset-s4 offset-m3 s5 boton grey-text darken-text-2 boton" disabled>Registrarme</button>
+					<button id="enviar" type="button" class="col offset-s3 s6 boton grey-text darken-text-2 boton" disabled>Registrarme</button>
 				</div>
 			</form>
 		</section>
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/registro.js"></script>
 	</body>
 </html>

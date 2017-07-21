@@ -57,7 +57,7 @@ gulp.task('jsRegistro', function() {
 	.pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('jsCodigo', function() {
+gulp.task('jsCode', function() {
 	gulp.src(rutas.jsCodigoSeguridad)
 	.pipe(gulp.dest('./public/js'))
 });
@@ -71,7 +71,7 @@ gulp.task('css-watch', ['css'], function(){
 	gulp.watch(rutas.mainSass, ['css']);
 });
 
-gulp.task('js-watch', ['js', 'jsPuro', 'jsCodigo'], function(done){
+gulp.task('js-watch', ['js', 'jsPuro', 'jsCode'], function(){
 	gulp.watch(rutas.js);
 	gulp.watch(rutas.jsPuro);
 	gulp.watch(rutas.jsCodigoSeguridad);

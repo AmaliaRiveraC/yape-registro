@@ -1,47 +1,57 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
 var contenedorTemporizador = document.getElementById('contenedor-contador');
-var contador = 21;
 var phone = localStorage.getItem('phone');
-var temporizador;
+var contador = 21;
+var codigoIngresaoPorUsuario = inputCodigo.value;
+var codigo = localStorage.getItem('codigo');
+var tuTelefono = document.getElementById('telephoNumber');
+
+
+tuTelefono.innerHTML = phone;
 
 
 
 
 
+window.addEventListener('load', limiteDeTiempo);
 inputCodigo.addEventListener('keyup',  function(event){
 	event.preventDefault();
-	var codigoIngresaoPorUsuario = inputCodigo.value;
-	var codigo = localStorage.getItem('codigo');
-	var tuTelefono = document.getElementById('telephoNumber');
-
-
-	tuTelefono.innerHTML = phone;
+	
 	if(codigoIngresaoPorUsuario == codigo){
 		window.location.href = 'crear-usuario.html';
-	} else {
-		limiteDeTiempo()
-	}
+	} 
+
+	
 
 
 });
 
 var limiteDeTiempo = function() {
 
-	setTimeout(imprimirTemporizador, 21000);
+	setTimeout(function(){
+		postJSONDos(api.url2, {
+			"phone": phone
+		})
+			.then(function(response){
+			enviarCodigoNuevo(response);
+			console.log(response);
+		})
+	}, 21000);
+
+	window.location.href = "ingresar-codigo.html";
 };
 
 var imprimirTemporizador = function(){
-	contenedorTemporizador.innerHTML = contador;
-	contador--;
+		
+		contenedorTemporizador.innerHTML = contador;
+			if(contador > 0) {
+				contador--;
+				setTimeout('imprimirTemporizador()', 1000)
 
-	temporizador = setTimeout(function(){
-
-		for(var i = 0; i < 1; i--){
-			contador--;
-			contenedorTemporizador.innerHTML = contador;
-		} 
-	}, 21000);
-}
+			}
+		
+	
+};
 
 
 
@@ -71,15 +81,9 @@ var imprimirTemporizador = function(){
 		var response = JSON.parse(response);
 		var datos = response.data;
 		var nuevoCodigo = datos.code;
+		alert("tu código es " + nuevoCodigo);
+
 	};
 
 	imprimirTemporizador();
 
-	/*function(){
-		postJSONDos(api.url2, {
-			"phone": phone
-		})
-			.then(function(response){
-			console.log(response);
-			enviarCodigoNuevo(response);
-		})}*/

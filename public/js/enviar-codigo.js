@@ -5,21 +5,20 @@ var contador = 21;
 var codigoIngresaoPorUsuario = inputCodigo.value;
 var codigo = localStorage.getItem('codigo');
 var tuTelefono = document.getElementById('telephoNumber');
-
+var check = localStorage.getItem('check');
 
 tuTelefono.innerHTML = phone;
 
 
 
 
-
-window.addEventListener('load', limiteDeTiempo);
-inputCodigo.addEventListener('keyup',  function(event){
-	event.preventDefault();
-	
+inputCodigo.addEventListener('keyup',  function(){
 	if(codigoIngresaoPorUsuario == codigo){
+		clearInterval(imprimirTemporizador);
 		window.location.href = 'crear-usuario.html';
-	} 
+	} else {
+		alert("Ingresa un código valido");
+	}
 
 	
 
@@ -28,36 +27,21 @@ inputCodigo.addEventListener('keyup',  function(event){
 
 var limiteDeTiempo = function() {
 
-	setTimeout(function(){
+	setTimeout(function(){requerirNuevoCodigo()},21000);
+
+	window.location.href = 'ingresar-codigo.html';
+};
+
+var requerirNuevoCodigo = function (url2){
 		postJSONDos(api.url2, {
-			"phone": phone
-		})
-			.then(function(response){
-			enviarCodigoNuevo(response);
+			'phone': phone,
+		}).then(function(response){
 			console.log(response);
+			enviarCodigoNuevo;		
 		})
-	}, 21000);
+}; 
 
-	window.location.href = "ingresar-codigo.html";
-};
-
-var imprimirTemporizador = function(){
-		
-		contenedorTemporizador.innerHTML = contador;
-			if(contador > 0) {
-				contador--;
-				setTimeout('imprimirTemporizador()', 1000)
-
-			}
-		
-	
-};
-
-
-
-
-
-	var postJSONDos = function(url) {
+var postJSONDos = function(url) {
 		return new Promise(function(resolve, reject) {
 			var ajax = new XMLHttpRequest();
 			ajax.open("POST", url);
@@ -76,6 +60,25 @@ var imprimirTemporizador = function(){
 		});
 	};
 
+
+var imprimirTemporizador = function(){
+		
+		contenedorTemporizador.innerHTML = contador;
+			if(contador > 0) {
+				contador--;
+				setTimeout('imprimirTemporizador()', 1000)
+
+			} 
+		
+	
+};
+
+
+
+
+
+	
+
 	var enviarCodigoNuevo = function(response){
 		console.log(response);
 		var response = JSON.parse(response);
@@ -85,5 +88,5 @@ var imprimirTemporizador = function(){
 
 	};
 
-	imprimirTemporizador();
 
+imprimirTemporizador();

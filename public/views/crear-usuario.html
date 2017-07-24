@@ -7,6 +7,7 @@
 		<title>Yape</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
 		<link rel="stylesheet" href="../css/main.css">
 	</head>
 	<body>
@@ -15,7 +16,7 @@
 				<div class="center">
 					<img class="responsive-img __icono" src="../img/icons/message.png" alt="icono">
 				</div>
-				<form class="col s12">
+				<form id="datosUsuario" class="col s12">
 					<div class="row">
 						<div class="input-field col offset-s3 s6">
 							<div class="row">
@@ -25,21 +26,21 @@
 							<div class="row">
 								<div class="input-field">
 									<i class="material-icons prefix">child_care</i>
-									<input id="contenedor-codigo" type="text" placeholder="Ingresa un nombre" required/>
+									<input id="name" type="text" class="datos-usuarios" placeholder="Ingresa un nombre" required/>
 									<label for="contenedor-codigo"></label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field">
 									<i class="material-icons prefix">email</i>
-									<input id="contenedor-codigo" type="tel" placeholder="correo@ejemplo.com " required/>
+									<input id="email" type="tel" class="datos-usuarios" placeholder="correo@ejemplo.com " required/>
 									<label for="contenedor-codigo"></label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field">
 									<i class="material-icons prefix">lock</i>
-									<input id="contenedor-codigo" type="tel" placeholder="Ingresa clave de 6 digitos" required/>
+									<input id="password" type="tel" class="datos-usuarios" placeholder="Ingresa clave de 6 digitos" required/>
 									<label for="contenedor-codigo"></label>
 								</div>
 							</div>
@@ -54,6 +55,7 @@
 		</section>
 			<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+			<script src="../dist/sweetalert.min.js"></script>
 			<script src="../js/main.js"></script>
 			<script src="../js/crear-usuario.js"></script>
 			</body>

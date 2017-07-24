@@ -1,9 +1,10 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
+var formularioCodigo = document.getElementById('form-codigo')
 var contenedorTemporizador = document.getElementById('contenedor-contador');
 var phone = localStorage.getItem('phone');
 var contador = 21;
-var codigoIngresaoPorUsuario = inputCodigo.value;
 var codigo = localStorage.getItem('codigo');
+console.log(codigo)
 var tuTelefono = document.getElementById('telephoNumber');
 var check = localStorage.getItem('check');
 
@@ -12,25 +13,21 @@ tuTelefono.innerHTML = phone;
 
 
 
-inputCodigo.addEventListener('keyup',  function(){
-	if(codigoIngresaoPorUsuario == codigo){
-		clearInterval(imprimirTemporizador);
-		window.location.href = 'crear-usuario.html';
-	} else {
-		alert("Ingresa un código valido");
-	}
-
-	
-
-
+formularioCodigo.addEventListener('submit',  function(event){
+	event.preventDefault();
+	var codigoIngresadoPorUsuario = inputCodigo.value;
+	console.log(codigoIngresadoPorUsuario);
+	if(codigoIngresadoPorUsuario == codigo){
+		window.location.href = '../views/crear-usuario.html';
+	} 
 });
 
-var limiteDeTiempo = function() {
+/*var limiteDeTiempo = function() {
 
 	setTimeout(function(){requerirNuevoCodigo()},21000);
 
 	window.location.href = 'ingresar-codigo.html';
-};
+};*/
 
 var requerirNuevoCodigo = function (url2){
 		postJSONDos(api.url2, {

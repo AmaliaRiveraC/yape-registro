@@ -1,53 +1,44 @@
 var inputCodigo = document.getElementById('contenedor-codigo');
+var formularioCodigo = document.getElementById('form-codigo')
 var contenedorTemporizador = document.getElementById('contenedor-contador');
-var contador = 21;
 var phone = localStorage.getItem('phone');
-var temporizador;
+var contador = 21;
+var codigo = localStorage.getItem('codigo');
+console.log(codigo)
+var tuTelefono = document.getElementById('telephoNumber');
+var check = localStorage.getItem('check');
+
+tuTelefono.innerHTML = phone;
 
 
 
 
-
-inputCodigo.addEventListener('keyup',  function(event){
+formularioCodigo.addEventListener('submit',  function(event){
 	event.preventDefault();
-	var codigoIngresaoPorUsuario = inputCodigo.value;
-	var codigo = localStorage.getItem('codigo');
-	var tuTelefono = document.getElementById('telephoNumber');
-
-
-	tuTelefono.innerHTML = phone;
-	if(codigoIngresaoPorUsuario == codigo){
-		window.location.href = 'crear-usuario.html';
-	} else {
-		limiteDeTiempo()
-	}
-
-
+	var codigoIngresadoPorUsuario = inputCodigo.value;
+	console.log(codigoIngresadoPorUsuario);
+	if(codigoIngresadoPorUsuario == codigo){
+		window.location.href = '../views/crear-usuario.html';
+	} 
 });
 
-var limiteDeTiempo = function() {
+/*var limiteDeTiempo = function() {
 
-	setTimeout(imprimirTemporizador, 21000);
-};
+	setTimeout(function(){requerirNuevoCodigo()},21000);
 
-var imprimirTemporizador = function(){
-	contenedorTemporizador.innerHTML = contador;
-	contador--;
+	window.location.href = 'ingresar-codigo.html';
+};*/
 
-	temporizador = setTimeout(function(){
+var requerirNuevoCodigo = function (url2){
+		postJSONDos(api.url2, {
+			'phone': phone,
+		}).then(function(response){
+			console.log(response);
+			enviarCodigoNuevo;		
+		})
+}; 
 
-		for(var i = 0; i < 1; i--){
-			contador--;
-			contenedorTemporizador.innerHTML = contador;
-		} 
-	}, 21000);
-}
-
-
-
-
-
-	var postJSONDos = function(url) {
+var postJSONDos = function(url) {
 		return new Promise(function(resolve, reject) {
 			var ajax = new XMLHttpRequest();
 			ajax.open("POST", url);
@@ -66,20 +57,33 @@ var imprimirTemporizador = function(){
 		});
 	};
 
+
+var imprimirTemporizador = function(){
+		
+		contenedorTemporizador.innerHTML = contador;
+			if(contador > 0) {
+				contador--;
+				setTimeout('imprimirTemporizador()', 1000)
+
+			} 
+		
+	
+};
+
+
+
+
+
+	
+
 	var enviarCodigoNuevo = function(response){
 		console.log(response);
 		var response = JSON.parse(response);
 		var datos = response.data;
 		var nuevoCodigo = datos.code;
+		alert("tu código es " + nuevoCodigo);
+
 	};
 
-	imprimirTemporizador();
 
-	/*function(){
-		postJSONDos(api.url2, {
-			"phone": phone
-		})
-			.then(function(response){
-			console.log(response);
-			enviarCodigoNuevo(response);
-		})}*/
+imprimirTemporizador();

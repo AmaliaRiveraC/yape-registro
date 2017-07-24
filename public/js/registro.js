@@ -18,8 +18,9 @@ boton.addEventListener('click', function(event){
 
 	event.preventDefault();
 	var phone = contenedorPhone.value;
-	localStorage.setItem("phone", phone);
+	localStorage.setItem('phone', phone);
 	var check= document.getElementById('check').checked;
+	localStorage.setItem('check', check);
 
 	postJSON(api.url1, {
 		"phone": phone,
@@ -28,5 +29,6 @@ boton.addEventListener('click', function(event){
 		.then(function(response){ 
 		enviarCodigo(response);
 	})
+		
 
 });
